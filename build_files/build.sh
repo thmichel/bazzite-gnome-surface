@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 # Copy the contents of system_files/ of the git repo to /
-#cp -avf "/ctx/system_files"/. /
+cp -avf "/ctx/system_files"/. /
 
 ### Install packages
 
@@ -18,6 +18,9 @@ PACKAGES=(
 	wireshark
 	java-latest-openjdk
 	tmux
+	plocate
+	iptsd
+	nvidia-settings
 )
 
 dnf5 install -y "${PACKAGES[@]}"
