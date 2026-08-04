@@ -3,7 +3,8 @@ ARG IMAGE_VARIANT=main
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
-# COPY system_files /system_files
+
+COPY system_files /system_files
 
 FROM ghcr.io/davidbitterlich/linux-surface-fedora:latest-fc44 AS kernel
 
