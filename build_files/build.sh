@@ -2,8 +2,8 @@
 
 set -ouex pipefail
 
-# Copy the contents of system_files/ of the git repo to /
-cp -avf "/system_files"/. /
+# Copy the contents of etc of the git repo to /etc
+cp -avf "/ctx/etc"/. /etc/
 
 ### Install packages
 
