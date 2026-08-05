@@ -5,7 +5,7 @@ set -euxo pipefail
 # install surface dnf repo
 #
 
-dnf5 config-manager addrepo --from-repofile="/ctx/linux-surface.repo" -y
+dnf5 config-manager addrepo --from-repofile="${BUILD_SCRIPTS_PATH}/linux-surface.repo" -y
 
 
 # this installs a package from fedora repos
