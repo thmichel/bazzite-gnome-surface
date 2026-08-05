@@ -47,7 +47,7 @@ copy_systemfiles_for() {
 #/ctx/finalize-surface.sh
 
 CUSTOM_NAME="base"
-copy_systemfiles_for system_files
+#copy_systemfiles_for system_files
 run_buildscripts_for .
 CUSTOM_NAME=
 
