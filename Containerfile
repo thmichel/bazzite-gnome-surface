@@ -1,9 +1,10 @@
+ARG BASE_IMAGE=ghcr.io/ublue-os/bazzite-dx-gnome:stable
 ARG IMAGE_VARIANT=main
 
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
-COPY system_files/etc /etc
+COPY system_files /system_files
 
 FROM ghcr.io/davidbitterlich/linux-surface-fedora:latest-fc44 AS kernel
 
@@ -13,7 +14,7 @@ FROM ghcr.io/davidbitterlich/linux-surface-fedora:latest-fc44 AS kernel
 # FROM ghcr.io/ublue-os/bazzite:testing
 # FROM ghcr.io/ublue-os/aurora:stable
 #FROM ghcr.io/ublue-os/bazzite-dx-nvidia-gnome:stable
-FROM ghcr.io/ublue-os/bazzite-dx-gnome:stable
+FROM ${BASE_IMAGE}
 COPY --from=kernel /packages /tmp/packages
 
 # 
@@ -37,7 +38,6 @@ COPY --from=kernel /packages /tmp/packages
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
-ARG IMAGE_VARIANT
 
 ENV IMAGE_VARIANT=${IMAGE_VARIANT}
 
