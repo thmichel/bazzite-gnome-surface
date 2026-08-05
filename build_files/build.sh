@@ -17,10 +17,8 @@ cp -avrf /ctx/etc/ /etc/
 PACKAGES=(
 	wireshark
 	java-latest-openjdk
-	tmux
 	plocate
 	iptsd
-	nvidia-settings
 )
 
 dnf5 install -y "${PACKAGES[@]}"
