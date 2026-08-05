@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 # Copy the contents of etc of the git repo to /etc
-cp -avf "/ctx/etc"/. /etc/
+cp -avrf /ctx/etc/ /etc/
 
 ### Install packages
 

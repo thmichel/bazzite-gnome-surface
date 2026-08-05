@@ -12,7 +12,8 @@ FROM ghcr.io/davidbitterlich/linux-surface-fedora:latest-fc44 AS kernel
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:testing
 # FROM ghcr.io/ublue-os/aurora:stable
-FROM ghcr.io/ublue-os/bazzite-dx-nvidia-gnome:stable
+#FROM ghcr.io/ublue-os/bazzite-dx-nvidia-gnome:stable
+FROM ghcr.io/ublue-os/bazzite-dx-gnome:stable
 COPY --from=kernel /packages /tmp/packages
 
 # 
