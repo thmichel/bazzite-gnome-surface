@@ -39,16 +39,9 @@ copy_systemfiles_for() {
 	printf "::endgroup::\n"
 }
 
-# Copy the contents of etc of the git repo to /etc
-#cp -avrf /ctx/etc/ /etc/
-
-
-
-#/ctx/surface-kernel.sh
-#/ctx/finalize-surface.sh
 
 CUSTOM_NAME="base"
-#copy_systemfiles_for files
+copy_systemfiles_for files
 run_buildscripts_for .
 CUSTOM_NAME=
 
