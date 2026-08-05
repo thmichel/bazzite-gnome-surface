@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-CONTEXT_PATH="$(realpath "$(dirname "$0")/..")" # should return /ctx
+CONTEXT_PATH="$(realpath "$(dirname "$0")/..")" # should return /run/context
 BUILD_SCRIPTS_PATH="$(realpath "$(dirname $0)")"
 MAJOR_VERSION_NUMBER="$(sh -c '. /usr/lib/os-release ; echo $VERSION_ID')"
 #SCRIPTS_PATH="$(realpath "$(dirname "$0")/scripts")"
@@ -47,7 +47,7 @@ copy_systemfiles_for() {
 #/ctx/finalize-surface.sh
 
 CUSTOM_NAME="base"
-#copy_systemfiles_for system_files
+#copy_systemfiles_for files
 run_buildscripts_for .
 CUSTOM_NAME=
 

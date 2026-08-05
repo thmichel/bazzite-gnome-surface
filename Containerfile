@@ -3,8 +3,8 @@ ARG IMAGE_VARIANT=main
 
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
-COPY build_files /
-COPY system_files /system_files
+COPY build_files /build_files
+COPY system_files /files
 
 FROM ghcr.io/davidbitterlich/linux-surface-fedora:latest-fc44 AS kernel
 
@@ -41,11 +41,11 @@ COPY --from=kernel /packages /tmp/packages
 
 ENV IMAGE_VARIANT=${IMAGE_VARIANT}
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+RUN --mount=type=bind,from=ctx,source=/,target=/run/context \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp/cache \
-    /ctx/build.sh
+    /run/context/build.sh
 
 ### LINTING
 ## Verify final image and contents are correct.
