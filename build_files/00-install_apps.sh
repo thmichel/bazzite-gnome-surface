@@ -15,7 +15,6 @@ PACKAGES=(
         java-latest-openjdk
         plocate
         iptsd
-	gpgme
 )
 
 dnf5 install -y "${PACKAGES[@]}" --skip-unavailable
